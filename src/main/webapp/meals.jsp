@@ -18,6 +18,24 @@
 <body>
 <section>
     <h3><a href="index.html">Home</a></h3>
+    <form method="post" action="meals" >
+        <table cellpadding="8" cellspacing="0">
+            <tr>
+                <td>Дата от</td>
+                <td><input type="date" name="startDate"></td>
+                <td>Время от</td>
+                <td><input type="time" name="startTime"></td>
+            </tr>
+            <tr>
+                <td>Дата до</td>
+                <td><input type="date" name="endDate"></td>
+                <td>Время до</td>
+                <td><input type="time" name="endTime"></td>
+            </tr>
+        </table>
+        <button type="submit" name="filter">Apply</button>
+        <button type="submit" name="resetFilter">Reset</button>
+    </form>
     <h2>Meal list</h2>
     <a href="meals?action=create">Add Meal</a>
     <hr/>
