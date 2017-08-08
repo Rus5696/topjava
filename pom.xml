@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.version>4.3.9 RELEASE</spring.version>
+        <spring.version>4.3.9.RELEASE</spring.version>
 
         <!-- Logging -->
         <logback.version>1.2.3</logback.version>
@@ -111,6 +111,12 @@
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.4</version>
+        </dependency>
+
 
         <!--- ORM -->
         <dependency>
