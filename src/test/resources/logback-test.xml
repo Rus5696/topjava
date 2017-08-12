@@ -14,6 +14,8 @@
     <logger name="org.postgresql" level="debug"/>
     <logger name="org.springframework.jdbc" level="debug"/>
     <logger name="ru.javawebinar.topjava" level="debug"/>
+    <logger name="o.s.test.context.junit4" level="debug"/>
+
 
     <root level="WARN">
         <appender-ref ref="console"/>
