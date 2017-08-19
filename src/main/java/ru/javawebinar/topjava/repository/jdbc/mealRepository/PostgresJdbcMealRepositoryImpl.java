@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.repository.jdbc.mealRepository;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,10 +13,12 @@ import java.time.LocalDateTime;
 /**
  * Created by Ruslan on 16.08.2017.
  */
-
+@Repository
+@Profile("jdbcPostgres")
 public class PostgresJdbcMealRepositoryImpl extends JdbcMealRepositoryImpl {
     public PostgresJdbcMealRepositoryImpl(DataSource dataSource, JdbcTemplate jdbcTemplate, NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         super(dataSource, jdbcTemplate, namedParameterJdbcTemplate);
+
     }
 
     @Override
