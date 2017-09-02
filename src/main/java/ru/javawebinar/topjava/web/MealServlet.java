@@ -47,7 +47,6 @@ public class MealServlet extends HttpServlet {
                 mealController.update(meal, getId(request));
             }
             response.sendRedirect("meals");
-
         } else if ("filter".equals(action)) {
             LocalDate startDate = parseLocalDate(request.getParameter("startDate"));
             LocalDate endDate = parseLocalDate(request.getParameter("endDate"));
