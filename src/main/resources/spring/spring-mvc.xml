@@ -36,6 +36,22 @@
     <property name="fallbackToSystemLocale" value="false"/>
   </bean>
 
+  <bean id="localDateFormatter" class="ru.javawebinar.topjava.util.LocalDateFormatter"/>
+
+  <bean id="localTimeFormatter" class="ru.javawebinar.topjava.util.LocalTimeFormatter"/>
+
+  <bean id="conversionService"
+    class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+    <property name="formatters">
+      <set>
+        <ref bean="localDateFormatter"/>
+        <ref bean="localTimeFormatter"/>
+      </set>
+    </property>
+  </bean>
+
+  <mvc:annotation-driven conversion-service="conversionService" />
+
   <!--  all resources inside folder src/main/webapp/resources are mapped so they can be referred to inside JSP files -->
   <mvc:resources mapping="/resources/**" location="/resources/"/>
 

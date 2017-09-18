@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.to.MealWithExceed;
@@ -45,13 +47,25 @@ public class MealRestController extends AbstractMealController {
   }
 
   @Override
-  public void update(Meal meal, int id) {
+  @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public void update(@RequestBody Meal meal, @PathVariable("id") int id) {
     super.update(meal, id);
   }
 
   @Override
-  public List<MealWithExceed> getBetween(LocalDate startDate, LocalTime startTime,
-      LocalDate endDate, LocalTime endTime) {
+  @GetMapping(value = "/getBetween")
+//  public List<MealWithExceed> getBetween(@RequestParam String startDate,
+//      @RequestParam String startTime,
+//      @RequestParam String endDate, @RequestParam String endTime) {
+//    LocalDate localDateStart = LocalDate.parse(startDate);
+//    LocalTime localTimeStart = LocalTime.parse(startTime);
+//    LocalDate localDateEnd = LocalDate.parse(endDate);
+//    LocalTime localTimeEnd = LocalTime.parse(endTime);
+//    return super.getBetween(localDateStart, localTimeStart, localDateEnd, localTimeEnd);
+//  }
+  public List<MealWithExceed> getBetween(@RequestParam LocalDate startDate,
+      @RequestParam LocalTime startTime,
+      @RequestParam LocalDate endDate, @RequestParam LocalTime endTime) {
     return super.getBetween(startDate, startTime, endDate, endTime);
   }
 }
