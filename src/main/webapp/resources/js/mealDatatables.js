@@ -1,28 +1,22 @@
-var ajaxUrl = "ajax/admin/users/";
+var ajaxUrl = "/rest/profile/meals/";
 var datatableApi;
-var formId = "#detailsFormUsers"
-var editRowId = "#editRowUsers"
+var formId = "#detailsFormUsers";
+var editRowId = "#editRowUser";
 
 // $(document).ready(function () {
 $(function () {
-  datatableApi = $("#datatableUsers").DataTable({
+  datatableApi = $("#datatableMeals").DataTable({
     "paging": false,
     "info": true,
     "columns": [
       {
-        "data": "name"
+        "data": "dateTime"
       },
       {
-        "data": "email"
+        "data": "description"
       },
       {
-        "data": "roles"
-      },
-      {
-        "data": "enabled"
-      },
-      {
-        "data": "registered"
+        "data": "calories"
       },
       {
         "defaultContent": "Edit",

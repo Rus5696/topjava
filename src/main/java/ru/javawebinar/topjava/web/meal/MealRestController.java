@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.web.meal;
 
+import java.time.LocalDateTime;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,15 +42,32 @@ public class MealRestController extends AbstractMealController {
         super.update(meal, id);
     }
 
+//    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Meal> createWithLocation(@RequestBody Meal meal) {
+//        Meal created = super.create(meal);
+//
+//        URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
+//                .path(REST_URL + "/{id}")
+//                .buildAndExpand(created.getId()).toUri();
+//
+//        return ResponseEntity.created(uriOfNewResource).body(created);
+//    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Meal> createWithLocation(@RequestBody Meal meal) {
-        Meal created = super.create(meal);
+    public void createOrSave(@RequestParam Integer id,
+        @RequestParam String dateTime, @RequestParam String desc, @RequestParam Integer calories) {
+        Meal meal = new Meal(id, LocalDateTime.parse(dateTime), desc, calories);
+        if (meal.isNew()) {
+            super.create(meal);
+        } else {
+            super.update(meal, id);
+        }
+//        Meal created = super.create(meal);
+//
+//        URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
+//            .path(REST_URL + "/{id}")
+//            .buildAndExpand(created.getId()).toUri();
 
-        URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path(REST_URL + "/{id}")
-                .buildAndExpand(created.getId()).toUri();
-
-        return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
     @Override
