@@ -7,10 +7,7 @@
 <body>
 <script type="text/javascript" src="resources/js/datatablesUtil.js" defer></script>
 <script type="text/javascript" src="resources/js/mealDatatables.js" defer></script>
-<%--<script defer>--%>
-  <%--$('#startTime').datetimepicker();--%>
-  <%--$('#startDate').datetimepicker();--%>
-<%--</script>--%>
+
 <jsp:include page="fragments/bodyHeader.jsp"/>
 
 <div class="jumbotron">

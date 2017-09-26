@@ -16,6 +16,13 @@ function clearFilter() {
 }
 
 $(function () {
+  // var startDate =  $('#startDate');
+  // var startTime =  $('#startTime').datetimepicker();
+  // startDate.datetimepicker({
+  //   timepicker: false,
+  //   format: 'Y-m-d',
+  //   formatDate: 'Y-m-d'
+  // });
   datatableApi = $("#datatable").DataTable({
     "ajax": {
       "url": ajaxUrl,
@@ -65,5 +72,4 @@ $(function () {
     ]
   });
   makeEditable();
-
 });
