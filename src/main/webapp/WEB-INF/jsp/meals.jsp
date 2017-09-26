@@ -7,6 +7,10 @@
 <body>
 <script type="text/javascript" src="resources/js/datatablesUtil.js" defer></script>
 <script type="text/javascript" src="resources/js/mealDatatables.js" defer></script>
+<%--<script defer>--%>
+  <%--$('#startTime').datetimepicker();--%>
+  <%--$('#startDate').datetimepicker();--%>
+<%--</script>--%>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 
 <div class="jumbotron">
@@ -24,14 +28,16 @@
                                         code="meal.startDate"/>:</label>
 
                                 <div class="col-sm-4">
-                                    <input class="form-control" type="date" name="startDate" id="startDate">
+                                    <input id="startDate" class="form-control" type="text" name="startDate">
+                                    <%--<input class="form-control" type="date" name="startDate" id="startDate">--%>
                                 </div>
 
                                 <label class="control-label col-sm-3" for="startTime"><spring:message
                                         code="meal.startTime"/>:</label>
 
                                 <div class="col-sm-3">
-                                    <input class="form-control" type="time" name="startTime" id="startTime">
+                                    <input id="startTime" class="form-control" type="text" name="startTime">
+                                    <%--<input class="form-control" type="time" name="startTime" id="startTime">--%>
                                 </div>
                             </div>
                             <div class="form-group">
