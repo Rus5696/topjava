@@ -1,19 +1,15 @@
 package ru.javawebinar.topjava.web.meal;
 
-import java.util.StringJoiner;
 import javax.validation.Valid;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.to.MealTo;
 import ru.javawebinar.topjava.to.MealWithExceed;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import ru.javawebinar.topjava.util.ControllerUtil;
@@ -36,24 +32,13 @@ public class MealAjaxController extends AbstractMealController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createOrUpdate(@Valid MealTo mealTo, BindingResult result) {
-        System.out.println("");
-        System.out.println("");
-        System.out.println("asasa");
-        System.out.println("");
-        System.out.println("asas");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("aasasas");
+    public ResponseEntity<String> createOrUpdate(@Valid Meal meal, BindingResult result) {
         if (result.hasErrors()) {
             return ControllerUtil.createResponseEntityByBindingResult(result);
         }
-        if (mealTo.isNew()) {
-            super.create(MealsUtil.createNewFromTo(mealTo));
+        if (meal.isNew()) {
+            super.create(meal);
         } else {
-            Meal meal = super.get(mealTo.getId());
-            MealsUtil.updateFromTo(meal, mealTo);
             super.update(meal, meal.getId());
         }
         return new ResponseEntity<>(HttpStatus.OK);
