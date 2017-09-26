@@ -18,6 +18,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form class="form-horizontal" id="filter">
+
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="startDate"><spring:message
                                         code="meal.startDate"/>:</label>
