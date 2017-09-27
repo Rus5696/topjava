@@ -1,7 +1,7 @@
 var form;
 
 function makeEditable() {
-    form = $('#detailsForm');
+    form = $("#detailsForm");
     $(document).ajaxError(function (event, jqXHR, options, jsExc) {
         failNoty(event, jqXHR, options, jsExc);
     });
@@ -22,7 +22,7 @@ function updateRow(id) {
                 key === "dateTime" ? formatDate(value) : value
             );
         });
-        $('#editRow').modal();
+        $("#editRow").modal();
     });
 }
 
@@ -71,7 +71,7 @@ function successNoty(text) {
     closeNoty();
     new Noty({
         text: "<span class='glyphicon glyphicon-ok'></span> &nbsp;" + text,
-        type: 'success',
+        type: "success",
         layout: "bottomRight",
         timeout: 1000
     }).show();
